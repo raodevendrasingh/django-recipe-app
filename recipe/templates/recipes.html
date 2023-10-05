@@ -4,7 +4,12 @@
 {% block content %}
 
 <div class="container mx-auto px-40 py-8 font-[poppins]">
-	<form class="border border-green-100 px-4 py-4 rounded-lg shadow-xl">
+	<form
+		class="border border-green-100 px-4 py-4 rounded-lg shadow-xl"
+		method="post"
+		enctype="multipart/form-data"
+	>
+		{% csrf_token %}
 		<div class="mb-6">
 			<label
 				for="recipe-name"
@@ -13,8 +18,8 @@
 			>
 			<input
 				type="text"
-				id="recipe-name"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+				name="recipe_name"
+				class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 				required
 			/>
 		</div>
@@ -22,27 +27,27 @@
 			<label
 				for="recipe-desc"
 				class="block mb-2 text-sm font-medium text-gray-900"
-				>Recipe Description</label
-			>
+				>Recipe Description
+			</label>
 			<textarea
 				rows="4"
-				id="recipe-desc"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+				name="recipe_description"
+				class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 				required
 			></textarea>
 		</div>
 
 		<div class="mb-6">
 			<label for="image" class="block mb-2 text-sm font-medium text-gray-900"
-				>Upload an image</label
-			>
+				>Upload an image
+			</label>
 			<input
 				type="file"
-				id="image"
-				name="image"
+				name="recipe_image"
+				required
 				accept="image/*"
 				multiple
-				class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+				class="form-control border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 			/>
 		</div>
 
