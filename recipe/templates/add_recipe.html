@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+<!-- content starts here -->
+{% block content %}
+
+<div class="container mx-auto px-40 py-8 font-[poppins]">
+	<form
+		class="border border-green-100 px-4 py-4 rounded-lg shadow-xl"
+		method="post"
+		enctype="multipart/form-data"
+	>
+		<p class="text-3xl mb-2">Add Recipes</p>
+		<hr class="border border-green-900" />
+		{% csrf_token %}
+		<div class="mt-2 mb-6">
+			<label
+				for="recipe-name"
+				class="block mb-2 text-sm font-medium text-gray-900"
+				>Recipe Name</label
+			>
+			<input
+				type="text"
+				name="recipe_name"
+				class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+				required
+			/>
+		</div>
+		<div class="mb-6">
+			<label
+				for="recipe-desc"
+				class="block mb-2 text-sm font-medium text-gray-900"
+				>Recipe Description
+			</label>
+			<textarea
+				rows="4"
+				name="recipe_description"
+				class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+				required
+			></textarea>
+		</div>
+
+		<div class="mb-6">
+			<label for="image" class="block mb-2 text-sm font-medium text-gray-900"
+				>Upload an image
+			</label>
+			<input
+				type="file"
+				name="recipe_image"
+				required
+				accept="image/*"
+				multiple
+				class="form-control border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+			/>
+		</div>
+
+		<button
+			type="submit"
+			class="text-white bg-green-800 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+		>
+			Submit
+		</button>
+	</form>
+</div>
+{% endblock %}

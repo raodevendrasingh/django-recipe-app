@@ -1,4 +1,54 @@
 {% extends 'base.html' %}
 
 <!-- content starts here -->
-{% block content %} {% endblock %}
+{% block content %}
+
+<!-- recipe table -->
+<div class="flex justify-center font-[poppins]">
+	<div class="p-4">
+		<table class="text-sm text-left text-gray-800">
+			<thead class="text-xs text-gray-700 uppercase bg-gray-50">
+				<tr>
+					<th scope="col" class="px-6 py-3">Recipe Name</th>
+					<th scope="col" class="px-6 py-3">Description</th>
+					<th scope="col" class="px-6 py-3">Images</th>
+					<th scope="col" class="px-6 py-3">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for recipe in recipes %}
+
+				<tr class="bg-white border-b">
+					<td class="px-6 py-4">{{ recipe.recipe_name }}</td>
+					<td class="px-6 py-4">{{ recipe.recipe_description }}</td>
+					<td class="px-6 py-4">
+						<img
+							class="h-[100px] w-[150px]"
+							src="/media/{{ recipe.recipe_image }}"
+							alt=""
+						/>
+					</td>
+					<td>
+						<a
+							method="POST"
+							href="/delete-recipe/{{ recipe.id }}"
+							class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
+						>
+							<i class="fas fa-trash-alt text-sm"></i>
+						</a>
+						<a
+							href="/update-recipe/{{ recipe.id }}"
+							class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+						>
+							<i class="fas fa-edit text-sm"></i>
+						</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- end -->
+{% endblock %}
