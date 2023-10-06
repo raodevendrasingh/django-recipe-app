@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+<!-- content starts here -->
+{% block content %}
+
+<div class="grid place-items-center pt-[60px] font-[poppins]">
+	<div class="w-96 p-6 shadow-lg bg-white rounded-lg">
+		<form method="post" enctype="multipart/form-data">
+			<p class="text-3xl mb-2">Sign Up</p>
+			<hr class="border border-green-800" />
+			{% csrf_token %}
+			<div class="mt-2 mb-4">
+				<label for="fname" class="block mb-2 text-sm font-medium text-gray-900"
+					>First Name</label
+				>
+				<input
+					type="text"
+					name="first_name"
+					class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+					placeholder="John"
+					required
+				/>
+			</div>
+			<div class="mt-2 mb-6">
+				<label for="lname" class="block mb-2 text-sm font-medium text-gray-900"
+					>Last Name</label
+				>
+				<input
+					type="text"
+					name="last_name"
+					class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+					placeholder="Doe"
+					required
+				/>
+			</div>
+			<div class="mt-2 mb-6">
+				<label
+					for="login-id"
+					class="block mb-2 text-sm font-medium text-gray-900"
+					>Email ID</label
+				>
+				<input
+					type="email"
+					name="login_id"
+					class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+					placeholder="yourname@company.com"
+					required
+				/>
+			</div>
+			<div class="mt-2 mb-6">
+				<label for="pass" class="block mb-2 text-sm font-medium text-gray-900"
+					>Password</label
+				>
+				<input
+					type="password"
+					name="password"
+					class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+					placeholder="********"
+					required
+				/>
+			</div>
+
+			<button
+				type="submit"
+				class="text-white bg-green-800 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+			>
+				Create Account
+			</button>
+			<p class="text-sm py-2 font-light text-green-500 dark:text-gray-400">
+				Already have an account?
+				<a
+					href="/login"
+					class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+					>Login</a
+				>
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}

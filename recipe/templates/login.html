@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+<!-- content starts here -->
+{% block content %}
+
+<div class="grid place-items-center pt-[100px] font-[poppins]">
+	<div class="w-96 p-6 shadow-lg bg-white rounded-lg">
+		<form method="post" enctype="multipart/form-data">
+			<p class="text-3xl mb-2">Login</p>
+			<hr class="border border-green-800" />
+			{% csrf_token %}
+			<div class="mt-2 mb-6">
+				<label
+					for="login-id"
+					class="block mb-2 text-sm font-medium text-gray-900"
+					>Email ID</label
+				>
+				<input
+					type="email"
+					name="login-id"
+					class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+					placeholder="yourname@company.com"
+					required
+				/>
+			</div>
+			<div class="mt-2 mb-6">
+				<label
+					for="login-id"
+					class="block mb-2 text-sm font-medium text-gray-900"
+					>Password</label
+				>
+				<input
+					type="password"
+					name="password"
+					class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+					placeholder="********"
+					required
+				/>
+			</div>
+
+			<button
+				type="submit"
+				class="text-white bg-green-800 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+			>
+				Sign In
+			</button>
+			<p class="text-sm py-4 font-light text-green-500 dark:text-gray-400">
+				Don’t have an account yet?
+				<a
+					href="/register"
+					class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+					>Sign up</a
+				>
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}
